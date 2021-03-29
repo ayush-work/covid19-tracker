@@ -5,3 +5,4 @@
 ### This project uses the https://disease.sh/ API to display the data about daily increment in active, deaths and recovered cases.
 
 #### User's can also see details about a specific country.
+![](tracovid-country.png) 
