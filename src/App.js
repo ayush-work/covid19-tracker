@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import Search from "./Search";
+
 function App() {
   const [active, setActive] = useState("");
   const [death, setDeath] = useState("");

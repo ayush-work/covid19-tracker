@@ -1,8 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Country from "./Country";
-import Typed from "react-typed";
-
+import ScrollIntoView from "react-scroll-into-view";
 const Search = () => {
   const [inputVal, setInputVal] = useState("");
 
@@ -36,10 +35,13 @@ const Search = () => {
           onChange={(e) => setInputVal(e.target.value)}
           placeholder="Search Country"
         />
-        {/* <button className="btn" onClick={getCountryData}>
-          Submit
-        </button> */}
+        <ScrollIntoView selector="#scrollInto">
+          <button className="btn hidden" onClick={getCountryData}>
+            Submit
+          </button>
+        </ScrollIntoView>
       </div>
+
       <Country {...results} val={inputVal}></Country>
     </>
   );
