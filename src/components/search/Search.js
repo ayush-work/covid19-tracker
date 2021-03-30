@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Country from "./Country";
+import Country from "../country/Country";
 import ScrollIntoView from "react-scroll-into-view";
 const Search = () => {
   const [inputVal, setInputVal] = useState("");
@@ -16,9 +16,7 @@ const Search = () => {
       if (response.ok) {
         setResults(data);
       }
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
 
   useEffect(() => {

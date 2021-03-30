@@ -1,11 +1,11 @@
 import React from "react";
+import numFormat from "../../numFormat.js";
 
 const Card = (props) => {
   const {
     active,
     deaths,
     recovered,
-    message,
     type,
     todayCases,
     todayDeaths,
@@ -14,17 +14,16 @@ const Card = (props) => {
   let cases;
   let newCases;
   if (type === "active") {
-    cases = new Intl.NumberFormat("en-IN").format(active);
-    newCases = new Intl.NumberFormat("en-IN").format(todayCases);
-    // formatCases(active, todayCases);
+    cases = numFormat(active);
+    newCases = numFormat(todayCases);
   }
   if (type === "recovered") {
-    cases = new Intl.NumberFormat("en-IN").format(recovered);
-    newCases = new Intl.NumberFormat("en-IN").format(todayRecovered);
+    cases = numFormat(recovered);
+    newCases = numFormat(todayRecovered);
   }
   if (type === "death") {
-    cases = new Intl.NumberFormat("en-IN").format(deaths);
-    newCases = new Intl.NumberFormat("en-IN").format(todayDeaths);
+    cases = numFormat(deaths);
+    newCases = numFormat(todayDeaths);
   }
 
   return (

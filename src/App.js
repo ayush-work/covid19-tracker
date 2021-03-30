@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Card from "./Card";
-import Search from "./Search";
+import Card from "./components/card/Card";
+import Search from "./components/search/Search";
 
 function App() {
   const [active, setActive] = useState("");
@@ -9,40 +9,38 @@ function App() {
   const [data, setData] = useState({});
 
   const allData = async function () {
-    const response = await fetch("https://corona.lmao.ninja/v2/all?yesterday");
-    const data = await response.json();
-    const {
-      active,
-      recovered,
-      deaths,
-      updated,
-      todayRecovered,
-      todayDeaths,
-      todayCases,
-    } = data;
-    setActive(active);
-    setDeath(deaths);
-    setRecovered(recovered);
+    try {
+      const response = await fetch(
+        "https://corona.lmao.ninja/v2/all?yesterday"
+      );
+      const data = await response.json();
+      const {
+        active,
+        recovered,
+        deaths,
+        updated,
+        todayRecovered,
+        todayDeaths,
+        todayCases,
+      } = data;
+      setActive(active);
+      setDeath(deaths);
+      setRecovered(recovered);
 
-    setData({
-      updated,
-      active,
-      deaths,
-      recovered,
-      todayCases,
-      todayDeaths,
-      todayRecovered,
-    });
+      setData({
+        updated,
+        active,
+        deaths,
+        recovered,
+        todayCases,
+        todayDeaths,
+        todayRecovered,
+      });
+    } catch (e) {}
   };
-  const getData = async function () {
-    const response = await fetch(
-      "https://corona.lmao.ninja/v2/countries?yesterday&sort"
-    );
-    const data = await response.json();
-  };
+
   useEffect(() => {
     allData();
-    getData();
   }, [active, death, recovered]);
 
   return (
