@@ -34,9 +34,9 @@ const Card = (props) => {
         <h4>Daily increase :</h4>
         <h4>
           {newCases}{" "}
-          <span>
+          {/* <span>
             <i className="bx bx-up-arrow-alt"></i>
-          </span>
+          </span> */}
         </h4>
       </div>
     </div>
